@@ -18,12 +18,12 @@ const countEl = document.getElementById("count");
 
 function getFiltered() {
   let result = products;
-  const search = searchInput.value;
+  const search = searchInput.value.trim().toLowerCase();
   const category = categorySelect.value;
   const sort = sortSelect.value;
 
   if (search) {
-    result = result.filter((p) => p.name === search);
+    result = result.filter((p) => p.name.toLowerCase() === search);
   }
 
   if (category !== "all") {
@@ -36,6 +36,7 @@ function getFiltered() {
     result.sort((a, b) => a.price - b.price);
   }
 
+  console.log(result);
   return result;
 }
 
